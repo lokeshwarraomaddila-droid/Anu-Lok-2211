@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anu ❤️ Lok</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* Floating hearts background */
+body::before{
+    content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+    position:absolute;
+    font-size:40px;
+    opacity:0.1;
+    animation:float 15s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh)}
+    to{transform:translateY(-100vh)}
+}
+
+.container{
+    background:white;
+    padding:45px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.names{
+    font-size:40px;
+    color:#ff3b6b;
+    font-weight:bold;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+    100%{transform:scale(1)}
+}
+
+h2{
+    margin-top:15px;
+    color:#444;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#yes{
+    background:#ff3b6b;
+    color:white;
+}
+
+#yes:hover{
+    transform:scale(1.1);
+}
+
+#no{
+    background:#444;
+    color:white;
+    position:absolute;
+}
+
+/* Popup */
+.popup{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+}
+
+.popup h3{
+    color:#ff3b6b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="names">Anu ❤️ Lok</div>
+
+    <h2>
+        Will you be my Valentine 💕 <br>
+        and my wife for our beautiful future life?
+    </h2>
+
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😜</button>
+
+</div>
+
+<!-- Proposal Popup -->
+<div class="popup" id="popup">
+    <h3>My Sweetheart 💍</h3>
+    <p>
+        From today till forever,<br>
+        I promise to love you, protect you,<br>
+        support you and make you smile every day.<br><br>
+        Let's build our dream life together ❤️
+    </p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<!-- Romantic Music -->
+<audio id="music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+</audio>
+
+<script>
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const popup = document.getElementById("popup");
+const music = document.getElementById("music");
+
+// YES click
+yesBtn.onclick = () => {
+    popup.style.display="block";
+    music.play();
+};
+
+// NO runs away
+noBtn.onmouseover = () => {
+    const x = Math.random()*(window.innerWidth-120);
+    const y = Math.random()*(window.innerHeight-60);
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+};
+
+// if somehow clicked
+noBtn.onclick = () => {
+    popup.style.display="block";
+    music.play();
+};
+
+function closePopup(){
+    popup.style.display="none";
+}
+</script>
+
+</body>
+</html>
